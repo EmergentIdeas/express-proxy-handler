@@ -1,6 +1,6 @@
 {
   "name": "express-proxy-handler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "create-proxy.js",
   "scripts": {
@@ -8,5 +8,11 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "filter-log": "0.0.5",
+    "request": "^2.88.0",
+    "through2": "^3.0.1",
+    "url": "^0.11.0"
+  }
 }
