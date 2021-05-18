@@ -12,7 +12,7 @@ let config = function(options) {
 	
 	if(!options.responseFinishedHandler) {
 		options.responseFinishedHandler = (req, proxyRequest, contentBuffer) => {
-			if(options.captureResponseContent) {
+			if(options.captureResponseContent && proxyRequest.statusCode == 200) {
 				proxyRequest.buf = contentBuffer
 				options.cacheInfo[proxyRequest.proxyPath] = proxyRequest
 			}
@@ -32,6 +32,7 @@ let config = function(options) {
 				}
 				proxyRequest.headers[key] = backendRes.headers[key]
 			}
+			proxyRequest.statusCode = backendRes.statusCode
 		}
 	}
 	
